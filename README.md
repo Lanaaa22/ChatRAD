@@ -1,1 +1,33 @@
-# ChatRAD
+# ChatRAD 1.0
+
+#### Sistema de conversação para analisar radiografias torácicas desenvolvido com o framework Rasa e uma interface construída no Streamlit
+
+## 🔨 Pré Requisitos
+
+- Instalar o Rasa:
+ ```bash
+pip install rasa
+```
+
+- Instalar o Streamlit:
+ ```bash
+pip install streamlit
+```
+
+## 👾 Compilação e Execução
+
+ ```bash
+rasa run --enable-api --cors "*"
+```
+(em outro terminal):
+
+ ```bash
+rasa run actions
+```
+
+ ```bash
+streamlit run ui/chat_interface.py
+```
+
+## Tutorial para o ngrok
+https://ngrok.com/docs/getting-started#windows
