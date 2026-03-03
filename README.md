@@ -4,6 +4,8 @@
 
 ## 🔨 Pré Requisitos
 
+- Instalar o Python (Versão 3.10): https://www.python.org/downloads/
+
 - Instalar o Rasa:
  ```bash
 pip install rasa
