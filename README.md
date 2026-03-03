@@ -20,12 +20,12 @@ pip install streamlit
 rasa run --enable-api --cors "*"
 ```
 
-em outro terminal:
+Em outro terminal:
  ```bash
 rasa run actions
 ```
 
-em outro terminal:
+Em outro terminal:
  ```bash
 streamlit run ui/chat_interface.py
 ```
