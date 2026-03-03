@@ -1,0 +1,49 @@
+version: "3.1"
+
+# #Resposta que o bot deve dar de acordo com a intent identificada
+# rules:
+# - rule: Receber imagem
+#   steps:
+#     - intent: enviarImagem
+#     - action: action_receber_imagem
+
+
+# - rule: responder saudacao
+#   steps:
+#     - intent: saudacao
+#     - action: utter_saudacao
+
+# - rule: responder informar_nome
+#   steps:
+#     - intent: informar_nome
+#     - action: utter_informar_nome
+
+# - rule: responder despedida
+#   steps:
+#     - intent: despedida
+#     - action: utter_despedida
+
+# - rule: responder agradecimento
+#   steps:
+#     - intent: agradecimento
+#     - action: utter_agradecimento
+
+# - rule: Mostrar opções após enviar imagem
+#   steps:
+#     - intent: enviarImagem
+#     - action: utter_opcao_modulo
+
+# - rule: Módulo patológico escolhido
+#   steps:
+#     - intent: escolher_modulo_patologico
+#     - action: utter_agradecimento  # ou outra resposta apropriada
+
+# - rule: Módulo radiografia escolhido
+#   steps:
+#     - intent: escolher_modulo_radiografia
+#     - action: utter_agradecimento  # ou outra resposta apropriada
+
+# - rule: Módulo laudo escolhido
+#   steps:
+#     - intent: escolher_modulo_laudo
+#     - action: utter_agradecimento

@@ -1,0 +1,173 @@
+version: "3.1"
+#arquivo que armazena os exemplos para treinar o rasa com as intenções
+nlu:
+
+- regex: nome
+  examples: |
+    - (?<=me chamo\s)[A-Za-zÀ-ÖØ-öø-ÿ]+
+    
+- intent: escolher_modulo_patologico
+  examples: |
+    - achados patológicos
+    - patológico
+    - quero análise patológica
+    - módulo patológico
+
+- intent: escolher_modulo_radiografia
+  examples: |
+    - relatórios de radiografias
+    - radiografia
+    - raio x
+    - módulo de radiografia
+
+- intent: escolher_modulo_laudo
+  examples: |
+    - laudos médicos automáticos
+    - laudo
+    - gerar laudo
+    - módulo de laudo
+
+- intent: informar_nome
+  examples: |
+    - Olá, meu nome é [Ilanna](nome)
+    - Tudo bem? me chamo [Luiz](nome)
+    - Oi, tudo bem? sou a [Maria](nome)
+    - Bom dia, aqui é o [Carlos](nome)
+    - Tudo certo? pode me chamar de [Ana Clara](nome)
+    - Boa tarde, sou o [Gabriel Souza](nome)
+    - Boa noite, sou a [Letícia](nome)
+    - Olá, me chamo [Amanda](nome)
+    - Sou o [João Pedro](nome)
+    - Meu nome é [Joao](nome)
+    - Me chamo [Lucas](nome)
+    - Pode me chamar de [Marta](nome)
+    - Prazer, me chamo [Gustavo](nome)
+    - Oi, me chame de [Mauricio](nome)
+    - Olá, me chame de [Dalva](nome)
+      - Olá, meu nome é [ilanna](nome)
+    - Tudo bem? me chamo [luiz](nome)
+    - Oi, tudo bem? sou a [maria](nome)
+    - Bom dia, aqui é o [carlos](nome)
+    - Tudo certo? pode me chamar de [ana clara](nome)
+    - Boa tarde, sou o [gabriel souza](nome)
+    - Boa noite, sou a [letícia](nome)
+    - Olá, me chamo [Amanda](nome)
+    - Sou o [joão pedro](nome)
+    - Meu nome é [joao](nome)
+    - Me chamo [lucas](nome)
+    - Pode me chamar de [marta](nome)
+    - Prazer, me chamo [gustavo](nome)
+    - Oi, me chame de [mauricio](nome)
+    - Olá, me chame de [dalva](nome)
+
+
+- intent: saudacao
+  examples: |
+    - Olá
+    - Oi,tudo bem?
+    - Tudo bem?
+    - Oi, tudo certo?
+    - Oi
+    - Bom dia
+    - Boa tarde
+    - Boa noite
+    - Prezado
+    - Tudo bem?
+    - Tudo bom?
+    - Como vai?
+    - Tudo certo?
+    - Prazer
+    - Ola
+
+- intent: despedida
+  examples: |
+    - Tchau
+    - Até mais
+    - Adeus
+    - Atenciosamente
+    - Cordialmente
+    - Respeitosamente 
+    - Tenha um bom dia
+    - Tchauzinho
+    - Converso com você mais tarde
+    - Bye
+    - Te vejo depois
+    - Até logo
+    - Até mais tarde
+    - Até a próxima
+    - Até breve
+
+- intent: agradecimento
+  examples: |
+    - Obrigada
+    - Obrigado
+    - Desde já agradeço.
+    - Obg
+    - Valeu
+    - Muito obrigada pela ajuda
+    - Muito obrigado pela ajuda
+    - Agradecido
+    - Agradecida
+    - Beleza
+    - Blz 
+    - Gratidão
+    - agradeço
+    - Muito obrigado
+    - Muito obrigada
+
+- intent: pedirImagem
+  examples: |
+    - Preciso enviar uma imagem
+    - Quero enviar um exame
+    - Quero enviar um raio x
+    - Quero enviar um laudo
+    - Vou enviar uma imagem
+    - Vou enviar um raio x
+    - Vou enviar meu exame
+    - Pode analisar minha imagem?
+    - Posso te enviar a imagem?
+    - Posso enviar o exame?
+    - Pode analisar meu exame?
+    - Consegue analisar meu exame?
+    - Consegue ver minha imagem?
+    - Consegue verificar meu raio-x
+    - Consegue verificar meu exame?
+    - Por favor, analise meu exame
+    - Por favor, analise minha imagem
+
+- intent: enviarImagem
+  examples: |
+    - Aqui está a imagem
+    - Enviei a imagem
+    - Mandei a imagem
+    - Acabei de enviar a imagem
+    - Pronto, imagem enviada
+    - Enviado
+    - Aqui está minha imagem
+    - Analise a imagem
+    - Imagem abaixo
+    - Enviei abaixo
+    - Imagem Aqui
+    - Enviei o laudo
+    - Enviei o raio-x
+    - Enviei a radiografia
+    - Já enviei uma imagem
+    - Tenho uma imagem para analisar
+    - Olha essa imagem
+    - Veja essa foto
+    - Aqui está o resultado
+
+- intent: opcaoModulo
+  examples: |
+    - [1](numero)
+    - [2](numero)
+    - [3](numero)
+    - opção [1](numero)
+    - opção [2](numero)
+    - opção [3](numero)
+    - modulo [1](numero)
+    - modulo [2](numero)
+    - modulo [3](numero)
+    - quero a opção [1](numero)
+    - quero a opção [2](numero)
+    - quero a opção [3](numero)

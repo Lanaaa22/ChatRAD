@@ -1,0 +1,61 @@
+version: "3.1"
+
+entities:
+  - nome
+  - numero
+
+slots:
+  nome:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: nome
+  
+  imagem_path:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: custom
+  
+  opcao:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: numero
+
+actions:
+  - action_receber_imagem
+  - action_compreende_opcao
+  
+intents:
+  - saudacao
+  - informar_nome
+  - despedida
+  - agradecimento
+  - pedirImagem
+  - opcaoModulo
+  - escolher_modulo_patologico
+  - escolher_modulo_radiografia
+  - escolher_modulo_laudo
+
+responses:
+  utter_saudacao:
+    - text: "Olá!"
+
+  utter_informar_nome:
+    - text: "Olá, {nome}"
+
+  utter_opcao_modulo:
+    - text: "Envie uma imagem e escolha uma opção:\n\n1️⃣  Achados patológicos\n2️⃣  Relatórios de radiografias\n3️⃣  Laudos médicos automáticos"
+
+  utter_despedida:
+      - text: "Estou à disposição."
+
+  utter_agradecimento:
+      - text: "De nada. Fico feliz em ajudar."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

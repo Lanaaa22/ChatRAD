@@ -1,0 +1,36 @@
+version: "3.1"
+
+#fluxo da conversa
+stories:
+- story: responder saudacao
+  steps:
+  - intent: saudacao
+  - action: utter_saudacao
+
+- story: responder saudacao com nome
+  steps:
+  - intent: informar_nome
+  - action: utter_informar_nome
+
+- story: responder despedida 
+  steps:
+  - intent: despedida
+  - action: utter_despedida
+
+- story: responder agradecimento
+  steps:
+    - intent: agradecimento
+    - action: utter_agradecimento
+
+- story: Opcoes apos enviar imagem
+  steps:
+    - intent: pedirImagem
+    - action: action_receber_imagem
+    - action: utter_opcao_modulo
+    - intent: opcaoModulo
+    - action: action_compreende_opcao
+
+- story: Opcoes de modulo
+  steps:
+    - intent: opcaoModulo
+    - action: action_compreende_opcao
