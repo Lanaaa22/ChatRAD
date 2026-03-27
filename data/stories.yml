@@ -6,31 +6,36 @@ stories:
   steps:
   - intent: saudacao
   - action: utter_saudacao
+  - action: utter_opcao_modulo
 
 - story: responder saudacao com nome
   steps:
   - intent: informar_nome
   - action: utter_informar_nome
-
-- story: responder despedida 
-  steps:
-  - intent: despedida
-  - action: utter_despedida
+  - action: utter_opcao_modulo
 
 - story: responder agradecimento
   steps:
     - intent: agradecimento
     - action: utter_agradecimento
 
-- story: Opcoes apos enviar imagem
+- story: responder agradecimento
   steps:
-    - intent: pedirImagem
-    - action: action_receber_imagem
-    - action: utter_opcao_modulo
-    - intent: opcaoModulo
-    - action: action_compreende_opcao
+    - intent: agradecimento
+    - action: utter_agradecimento
 
-- story: Opcoes de modulo
+- story: envio para o modulo correspondente
   steps:
-    - intent: opcaoModulo
-    - action: action_compreende_opcao
+    - intent: opcao_modulo
+    - action: action_compreende_modulo
+
+- story: finalizacao fechamento
+  steps:
+    - intent: fechamento_atendimento
+    - action: utter_fechamento_atendimento
+
+- story: finalizacao continuacao
+  steps:
+    - intent: continuacao_atendimento
+    - action: utter_continuacao_atendimento
+    - action: utter_opcao_modulo

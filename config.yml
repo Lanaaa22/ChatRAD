@@ -11,6 +11,9 @@ pipeline:
   - name: CountVectorsFeaturizer
   - name: DIETClassifier
     epochs: 100
+  - name: FallbackClassifier
+    threshold: 0.7        # confiança mínima para aceitar uma intent
+    ambiguity_threshold: 0.1
   - name: EntitySynonymMapper
   - name: ResponseSelector
   - name: FallbackClassifier
@@ -18,6 +21,9 @@ pipeline:
 policies:
   - name: MemoizationPolicy
   - name: RulePolicy
+    core_fallback_threshold: 0.4
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: true
   - name: UnexpecTEDIntentPolicy
     max_history: 5
     epochs: 100

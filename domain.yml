@@ -2,7 +2,7 @@ version: "3.1"
 
 entities:
   - nome
-  - numero
+  - servico
 
 slots:
   nome:
@@ -18,43 +18,69 @@ slots:
     mappings:
       - type: custom
   
-  opcao:
+  servico:
     type: text
     influence_conversation: true
     mappings:
       - type: from_entity
-        entity: numero
+        entity: servico
 
 actions:
-  - action_receber_imagem
-  - action_compreende_opcao
+  - action_compreende_modulo
   
 intents:
   - saudacao
   - informar_nome
-  - despedida
   - agradecimento
-  - pedirImagem
-  - opcaoModulo
+  - opcao_modulo
   - escolher_modulo_patologico
-  - escolher_modulo_radiografia
+  - escolher_modulo_similares
   - escolher_modulo_laudo
+  - ajuda
+  - fora_de_escopo
+  - fechamento_atendimento
+  - continuacao_atendimento
 
 responses:
   utter_saudacao:
-    - text: "Olá!"
+    - text: "Olá! Sou o ChatRAD, um chatbot para avaliar radiografias."
 
   utter_informar_nome:
-    - text: "Olá, {nome}"
+    - text: "Olá, {nome}. Sou o ChatRAD, um chatbot para avaliar radiografias."
 
   utter_opcao_modulo:
-    - text: "Envie uma imagem e escolha uma opção:\n\n1️⃣  Achados patológicos\n2️⃣  Relatórios de radiografias\n3️⃣  Laudos médicos automáticos"
-
-  utter_despedida:
-      - text: "Estou à disposição."
+    - text: "Para que eu possa te ajudar agora, escolha o que deseja fazer:"
+      buttons:
+      - title: "📝 Gerar Laudo"
+        payload: '/escolher_modulo_laudo{"servico": "laudo"}'
+      - title: "🔍 Encontrar achados patológicos"
+        payload: '/escolher_modulo_patologico{"servico": "patologico"}'
+      - title: "📂 Encontrar exames similares"
+        payload: '/escolher_modulo_similares{"servico": "similar"}'
+      - title: "❓Ajuda/Como Usar"
+        payload: '/ajuda{"servico": "ajuda"}'
+  
+  utter_pedir_imagem:
+    - text: "Envie sua imagem abaixo: " 
 
   utter_agradecimento:
-      - text: "De nada. Fico feliz em ajudar."
+      - text: "Disponha! Fico feliz em ajudar. Gostaria de analisar outro exame?"
+  
+  utter_default: 
+      - text: "Ops! Não consegui processar essa informação. 😅"
+  
+  utter_fora_de_escopo:
+      - text: "Infelizmente, não consigo te ajudar com esse assunto. Eu sou um assistente focado em radiologia torácica. 😅"
+  
+  utter_fechamento_atendimento:
+      - text: "Ok, estarei aqui para ajudar quando precisar 🙋."
+  
+  utter_continuacao_atendimento:
+      - text: "Para continuarmos o atendimento, selecione um botão abaixo:"
+
+
+  
+
 
 session_config:
   session_expiration_time: 60

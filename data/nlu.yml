@@ -115,59 +115,125 @@ nlu:
     - Muito obrigado
     - Muito obrigada
 
-- intent: pedirImagem
+- intent: fora_de_escopo
   examples: |
-    - Preciso enviar uma imagem
-    - Quero enviar um exame
-    - Quero enviar um raio x
-    - Quero enviar um laudo
-    - Vou enviar uma imagem
-    - Vou enviar um raio x
-    - Vou enviar meu exame
-    - Pode analisar minha imagem?
-    - Posso te enviar a imagem?
-    - Posso enviar o exame?
-    - Pode analisar meu exame?
-    - Consegue analisar meu exame?
-    - Consegue ver minha imagem?
-    - Consegue verificar meu raio-x
-    - Consegue verificar meu exame?
-    - Por favor, analise meu exame
-    - Por favor, analise minha imagem
+    - Qual é a capital da França?
+    - Me conta uma piada
+    - Como está o tempo hoje?
+    - Você gosta de música?
+    - Quem é o presidente atual?
+    - Quantos anos você tem?
+    - O que você acha do Batman?
+    - Eu estou com muita fome
+    - Minha vida está um caos total
+    - Não aguento mais estudar para a faculdade
+    - Hoje o dia foi muito cansativo
+    - Você sabe cozinhar?
+    - Me indica um filme de terror
+    - Qual o sentido da vida?
+    - Eu odeio segunda-feira
+    - Ganhei na loteria hoje
+    - Você conhece o ChatGPT?
+    - Quero viajar para a praia
+    - Estou muito triste com tudo o que está acontecendo
+    - Minha série favorita acabou
+    - Qual a cotação do dólar?
+    - Você tem sentimentos?
+    - Eu gosto de jogar videogame nas horas vagas
+    - O que você acha da inteligência artificial?
+    - Estou passando por muitos problemas pessoais
+    - Quero aprender a tocar violão
+    - Você sabe quem ganhou o Oscar?
+    - Meu computador está muito lento
+    - Quero desabafar sobre o meu dia
+    - Você pode criar uma imagem para mim?
+    - quanto custa um carro?
+    - me ajuda com matemática
+    - qual time ganhou ontem?
+    - você é bonito
+    - me ensina inglês
+    - preciso de uma receita de bolo
+    - como faço para emagrecer?
+    - me conta uma história
+    - qual é seu nome?
+    - você é uma IA?
+    - me recomenda um livro
+    - o que é machine learning?
+    - como instalar python?
+    - qual a previsão do tempo?
+    - me ajuda com código
+    - você tem Instagram?
+    - quando foi a segunda guerra?
+    - como funciona o pix?
+    - qual operadora é melhor?
+    - me faz um resumo do dia
+    - dsijsdjsdg
+    - euirere9trt
+    - utututut
 
-- intent: enviarImagem
-  examples: |
-    - Aqui está a imagem
-    - Enviei a imagem
-    - Mandei a imagem
-    - Acabei de enviar a imagem
-    - Pronto, imagem enviada
-    - Enviado
-    - Aqui está minha imagem
-    - Analise a imagem
-    - Imagem abaixo
-    - Enviei abaixo
-    - Imagem Aqui
-    - Enviei o laudo
-    - Enviei o raio-x
-    - Enviei a radiografia
-    - Já enviei uma imagem
-    - Tenho uma imagem para analisar
-    - Olha essa imagem
-    - Veja essa foto
-    - Aqui está o resultado
 
-- intent: opcaoModulo
+- intent: fechamento_atendimento
   examples: |
-    - [1](numero)
-    - [2](numero)
-    - [3](numero)
-    - opção [1](numero)
-    - opção [2](numero)
-    - opção [3](numero)
-    - modulo [1](numero)
-    - modulo [2](numero)
-    - modulo [3](numero)
-    - quero a opção [1](numero)
-    - quero a opção [2](numero)
-    - quero a opção [3](numero)
+    - Não, obrigado
+    - Não, obrigada
+    - Não quero mais nada
+    - Não preciso de mais ajuda agora
+    - Não quero analisar mais nenhum exame
+    - Muito obrigado pela ajuda, encerramos por aqui
+    - Valeu pela ajuda, já terminei
+    - Não preciso mais dos seus serviços no momento
+    - Obrigado, mas já fiz o que precisava hoje
+    - Já finalizei o que precisava, obrigado
+    - Não quero mais ajuda para analisar exames
+    - O serviço está ótimo, mas não quero mais nada
+    - Já verifiquei o que era necessário
+    - Tudo certo por aqui, pode encerrar
+    - Não, por enquanto é só isso
+    - Pode finalizar o atendimento agora
+    - Não pretendo usar mais nenhum módulo hoje
+    - Obrigado, o ChatRAD me ajudou bastante, tchau
+    - Não vou analisar mais radiografias agora
+    - Já terminei a avaliação das imagens
+    - No momento não preciso de mais suporte
+    - Pode parar por aqui, valeu
+    - Satisfeito por hoje, obrigado
+    - Não, já obtive o que queria
+    - Terminei minha análise de tórax
+    - Não desejo continuar o atendimento
+    - Sem mais exames para hoje, obrigado
+    - Já verifiquei tudo o que era preciso no módulo
+    - Pode fechar a sessão, obrigado
+    - Não preciso de mais nada, o atendimento foi excelente
+
+- intent: continuacao_atendimento
+  examples: |
+    - Sim, por favor
+    - Sim, eu quero continuar
+    - Com certeza, preciso de mais ajuda
+    - Quero continuar o atendimento
+    - Sim, gostaria de analisar outro exame
+    - Preciso usar mais um módulo
+    - Sim, quero ajuda com o módulo de radiografias
+    - Gostaria de prosseguir para a análise torácica
+    - Sim, vamos verificar outro raio-x
+    - Quero sim, pode me ajudar com mais um exame?
+    - Sim, gostaria de utilizar as ferramentas de diagnóstico
+    - Por favor, continue com o suporte do ChatRAD
+    - Sim, vamos para o próximo módulo
+    - Quero continuar com a análise de imagens
+    - Sim, ainda preciso da sua ajuda para avaliar um laudo
+    - Sim, gostaria de usar o módulo agora
+    - Quero sim, vamos analisar mais uma imagem
+    - Sim, pretendo usar as funcionalidades de diagnóstico
+    - Com certeza, quero continuar o suporte
+    - Sim, pode iniciar a análise do tórax
+    - Gostaria de seguir com o atendimento
+    - Sim, quero ajuda com mais uma radiografia
+    - Por favor, me ajude com o próximo passo do módulo
+    - Sim, quero verificar mais um exame de imagem
+    - Quero prosseguir com a avaliação médica
+    - Sim, vamos fazer mais uma análise
+    - Gostaria de continuar usando o sistema
+    - Sim, me ajude com o módulo de análise radiológica
+    - Quero sim, vamos verificar a próxima radiografia
+    - Sim, gostaria de prosseguir para a próxima etapa
