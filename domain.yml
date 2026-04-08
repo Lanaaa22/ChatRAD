@@ -12,12 +12,6 @@ slots:
       - type: from_entity
         entity: nome
   
-  imagem_path:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: custom
-  
   servico:
     type: text
     influence_conversation: true
@@ -60,8 +54,6 @@ responses:
       - title: "❓Ajuda/Como Usar"
         payload: '/ajuda{"servico": "ajuda"}'
   
-  utter_pedir_imagem:
-    - text: "Envie sua imagem abaixo: " 
 
   utter_agradecimento:
       - text: "Disponha! Fico feliz em ajudar. Gostaria de analisar outro exame?"
