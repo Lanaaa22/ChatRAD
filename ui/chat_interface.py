@@ -1,5 +1,7 @@
 import streamlit as st
 import requests
+from ultralytics import YOLO
+from PIL import Image
 
 def title():
     st.set_page_config(page_title="ChatRAD", page_icon="🤖")
@@ -62,6 +64,13 @@ def get_service_entity():
         print(f"Erro ao acessar Tracker: {e}")
         return None
 
+def patologico_image(arq_image, modelo_patologico):
+    image_pil = Image.open(arq_image)
+    result = modelo_patologico(image_pil)
+    image_process = result[0].plot()
+    st.image(image_process,caption=f"Análise de: {arq_image.name}", use_container_width=True)
+    store_message("assistant", f"Análise concluída para {arq_image.name}.")
+
 def main():
     title()
     if "msg" not in st.session_state:
@@ -80,8 +89,9 @@ def main():
                     if st.button(btn["title"], width="stretch", key=f"{btn['payload']}_{i}"):
                         store_message("user", btn["title"])
                         response = get_rasa_responses(btn["payload"])
+                        
                         for r in response:
-                            store_message("assistant", r.get("text", ""), r.get("buttons"))
+                           store_message("assistant", r.get("text", ""), r.get("buttons"))
                         st.rerun()
                 entity_image = ["laudo", "patologico", "similar"]
                 entity = get_service_entity()
@@ -89,7 +99,17 @@ def main():
                     uploaded_files = st.file_uploader("Agora envie os exames aqui para prosseguir o atendimento: ", accept_multiple_files=True, type=["jpg", "png"], key=f"upload_{i}")
                     if uploaded_files:
                         st.success("imagem(ns) carregada(s) com sucesso!")
-                        #baixar modulos aqui
+                        if st.button("Enviar exames", key=f"btn_enviar_{i}"):
+                            with st.spinner("Analisando..."):
+                                if entity == "patologico":
+                                    print("Modelo sendo carregado")
+                                    modelo_patologico = YOLO('modules/best.pt')
+                                    for arq_image in uploaded_files:
+                                        patologico_image(arq_image, modelo_patologico)
+
+
+
+                                
 
     prompt = st.chat_input("Como o ChatRAD pode ajudar hoje?")
     # se alguma mensagem foi enviada:
