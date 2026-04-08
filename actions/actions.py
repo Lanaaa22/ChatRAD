@@ -11,6 +11,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
+from ultralytics import YOLO
 
 class ActionCompreendeModulo(Action):
      def name(self) -> Text:
@@ -22,13 +23,7 @@ class ActionCompreendeModulo(Action):
         print("Entrando na action")
         # Identificando o módulo pela entidade "servico"
         modulo = tracker.get_slot("servico")
-        if modulo == "patologico":
-            dispatcher.utter_message(f"Iniciando o serviço de Identificação de Achados Patológicos")
-        elif modulo == "laudo":
-            dispatcher.utter_message(f"Iniciando o serviço de Geração de Laudos Automáticos")
-        elif modulo == "similar":
-            dispatcher.utter_message(f"Iniciando o serviço de Procura de Exames Similares")
-        else:
+        if modulo == "ajuda":
             mensagem_ajuda = (
             "O **ChatRAD** tem como objetivo analisar radiografias torácicas e conta com três funcionalidades principais:\n\n"
             "1. 📝 **Gerar laudo**: Produção de um laudo automático a partir das imagens anexadas.\n"
@@ -39,7 +34,7 @@ class ActionCompreendeModulo(Action):
 
     
             botoes = [
-            {"title": "📝 Gerar Laudo", "payload": '/ajuda{"servico": "laudo"}'},
+            {"title": "📝 Gerar Laudo", "payload": '/ajuda{"servico": " "}'},
             {"title": "🔍 Encontrar achados patológicos", "payload": '/ajuda{"servico": "patologico"}'},
             {"title": "📂 Encontrar exames similares", "payload": '/ajuda{"servico": "similar"}'}]
 
