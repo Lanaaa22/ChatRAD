@@ -16,6 +16,11 @@ pip install rasa
 pip install streamlit
 ```
 
+- Instalar o ultralytics:
+ ```bash
+pip install ultralytics
+```
+
 ## 👾 Compilação e Execução
 
  ```bash
