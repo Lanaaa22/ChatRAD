@@ -1,0 +1,33 @@
+recipe: default.v1
+assistant_id: 20251023-110234-future-tournament
+
+language: pt
+
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: RegexEntityExtractor
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: DIETClassifier
+    epochs: 100
+  - name: FallbackClassifier
+    threshold: 0.7        # confiança mínima para aceitar uma intent
+    ambiguity_threshold: 0.1
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+  - name: FallbackClassifier
+
+policies:
+  - name: MemoizationPolicy
+  - name: RulePolicy
+    core_fallback_threshold: 0.4
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: true
+  - name: UnexpecTEDIntentPolicy
+    max_history: 5
+    epochs: 100
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+    constrain_similarities: true
