@@ -204,6 +204,21 @@ nlu:
     - Já verifiquei tudo o que era preciso no módulo
     - Pode fechar a sessão, obrigado
     - Não preciso de mais nada, o atendimento foi excelente
+    - quero fazer um feedback
+    - vou fazer um feedback
+    - gostaria de fazer um feedback
+    - quero avaliar o atendimento
+    - quero dar um feedback
+    - quero deixar um comentário sobre o atendimento
+    - gostaria de avaliar o atendimento
+    - gostaria de deixar um comentário sobre o atendimento
+    - quero fazer uma avaliação do atendimento
+    - quero deixar um comentário sobre o atendimento
+    - gostaria de fazer uma avaliação do atendimento
+    - N
+    - n
+    - nao
+    - Nao
 
 - intent: continuacao_atendimento
   examples: |

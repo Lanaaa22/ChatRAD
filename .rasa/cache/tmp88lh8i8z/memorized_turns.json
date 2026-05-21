@@ -1,0 +1,20 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhOLE0JTE5Mb+2NhYAPkUcrw==": "utter_saudacao",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhOLE0JTE5Mb+WgDGlJSWpRfFw1XjMiQUAL4M4FQ==": "utter_opcao_modulo",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEqhOLE0JTE5Mb+WgDGlJSWpRfFw1RSak18AVBqfm59SmoPXrFgAL5hVOw==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BCidXpSYkpqcmQvk5dfWxgIA0r0ewQ==": "utter_agradecimento",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BCidXpSYkpqcmQvk5dcSMKu0pCS1KB5VCyETYwG5VD5L": "action_listen",
+    "eJwtisEJwDAIAFdxgE7gKqUESX0IjZbE9BPcvUL7uztuX7HBujs/haqLKcL6oCg1RvjlkuGs+c7BPR/RVEeopi46qZIVynRKy24RxwseFiL5": "utter_continuacao_atendimento",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohOT+vJDOvNDE5MT8+ESiUkpkLFM+vJWBqaUlJalE8Ls3E2xILAPl1SvM=": "utter_opcao_modulo",
+    "eJytjVEKgDAMQ6+yA3iCXUVklNmPwtaO2fkzdncr+isi+JeEl2TuY3K9VNwDRCVh7/olAkNG726TaFNkY9uG1Rhis+pdFFbiBhEkgEUrZctlvKw2Vazhqfzvi5SzlmVt6cv0cgDfD25j": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohMy8tvyg3sSg+Lz83tbY2FgDUex7a": "utter_informar_nome",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohMy8tvyg3sSg+Lz83tZaAWaUlJalF8ahaCJkYCwDJlz6W": "utter_opcao_modulo",
+    "eJytjEEKgDAMBL/SB/iCfkUklBqh0CQlTb2U/t2CXjx58bYDs7P2sbheFE8I0ZKwd/0ewIHQuwdyqoY83VZRp5N4onmX+BCloMBCOD5azQwV3pc/ilJiECDZW5bP4HYBiatd5w==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvyA5MT8+Nz+lNCe/tjYWALVdHm8=": "action_compreende_modulo",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvyA5MT8+Nz+lNCe/ljijkvNzgYpS81JSYfoImBoLAIHvP68=": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohLTU5A6guryQ/PhEokpIJZtfWxgIA+TAifw==": "utter_fechamento_atendimento",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohLTU5A6guryQ/PhEokpIJZtcSMLS0pCS1KB6HXqLtiAUACBhJhQ==": "action_listen"
+  }
+}

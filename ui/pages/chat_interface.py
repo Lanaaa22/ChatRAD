@@ -7,7 +7,6 @@ import psycopg2
 def conexao():
     try:
         conexao = psycopg2.connect(database = "defaultdb", host = "pg-20fe24c4-ilaninhaaa22-0019.i.aivencloud.com", user = "avnadmin", password = "AVNS_dUBTFOg8pU7MRHo_ied", port= "21277", sslmode="require")
-        print("Conexão realizada com sucesso")
         return conexao
     except Exception as e:
         print(f"Erro ao conectar {e}")
@@ -48,7 +47,8 @@ def create_ballon(type_user, image, message):
 def get_rasa_responses(prompt):
     # Definição do endereço do RASA
     rasa_url = "http://localhost:5005/webhooks/rest/webhook"
-    payload = {"sender": "user_1", "message": prompt}
+    sender = str(st.session_state.get("usuario_id", "user_1"))
+    payload = {"sender": sender, "message": prompt}
 
     try:
         #tenta enviar o payload para o rasa por JSON e ja transforma em uma lista python
@@ -58,7 +58,8 @@ def get_rasa_responses(prompt):
         return [{"text": "Erro: O servidor Rasa está offline. 🔴"}]
 
 def get_service_entity():
-    url = "http://localhost:5005/conversations/user_1/tracker"
+    sender = str(st.session_state.get("usuario_id", "user_1"))
+    url = f"http://localhost:5005/conversations/{sender}/tracker"
     try:
         response = requests.get(url)
         data = response.json()
@@ -74,7 +75,8 @@ def get_service_entity():
         return None
     
 def get_service_intent():
-    url = "http://localhost:5005/conversations/user_1/tracker"
+    sender = str(st.session_state.get("usuario_id", "user_1"))
+    url = f"http://localhost:5005/conversations/{sender}/tracker"
     try:
         response = requests.get(url)
         data = response.json()
@@ -96,15 +98,23 @@ def patologico_image(arq_image, modelo_patologico):
     st.image(image_process,caption=f"Análise de: {arq_image.name}", use_container_width=True)
     store_message("assistant", f"Análise concluída para {arq_image.name}.")
 
-def send_feedback(cursor, mensagem):
-    id = st.session_state.get('usuario_id')
-
-    if id:
-        if st.button("Enviar Feedback"):
-            cursor.execute(
-            "INSERT INTO feedback (id, comentario) VALUES (%s, %s)",
-            (id, mensagem))
-        st.success("Feedback enviado!")
+def send_feedback(cursor, c):
+    if "usuario_id" not in st.session_state:
+        st.error("Sessão expirada. Faça login novamente.")
+        return
+    else:
+        id = st.session_state.usuario_id
+        st.write(f"DEBUG — usuario_id na sessão: {id}") 
+        comentario = st.text_area("Digite aqui seu comentário sobre o atendimento:", key="campo_comentario_fb")
+        if st.button("Confirmar Envio"):
+            try:
+                 cursor.execute(
+                    "INSERT INTO feedback (fk_usuario_id, comentario) VALUES (%s, %s)",
+                    (id, comentario))
+                 c.commit()
+                 st.success("Feedback enviado!")
+            except Exception as e:
+                st.error(f"Erro ao enviar feedback: {e}")
 
 def main():
     c = conexao()
@@ -113,6 +123,10 @@ def main():
     if "msg" not in st.session_state:
         st.session_state["msg"] = []
     msg = st.session_state["msg"]
+
+    intent = get_service_intent()
+    if intent == "fechamento_atendimento":
+        st.session_state["aguardando_feedback"] = True
 
     for i, m in enumerate(msg):
         # mensagem do usuário na tela
@@ -126,13 +140,12 @@ def main():
                     if st.button(btn["title"], width="stretch", key=f"{btn['payload']}_{i}"):
                         store_message("user", btn["title"])
                         response = get_rasa_responses(btn["payload"])
-                        
                         for r in response:
                            store_message("assistant", r.get("text", ""), r.get("buttons"))
                         st.rerun()
                 entity_image = ["laudo", "patologico", "similar"]
                 entity = get_service_entity()
-                intent = get_service_intent()
+                print(f"Intent: {intent}, Entity: {entity}")
                 if entity in entity_image:
                     uploaded_files = st.file_uploader("Agora envie os exames aqui para prosseguir o atendimento: ", accept_multiple_files=True, type=["jpg", "png"], key=f"upload_{i}")
                     if uploaded_files:
@@ -144,13 +157,9 @@ def main():
                                     modelo_patologico = YOLO('modules/best.pt')
                                     for arq_image in uploaded_files:
                                         patologico_image(arq_image, modelo_patologico)
-                if intent == "fechamento_atendimento":
-                    texto = st.session_state["msg"][-1]["message"]
-                    send_feedback(cursor, texto)
-
-
-
-                                
+                
+    if st.session_state.get("aguardando_feedback"):
+        send_feedback(cursor, c)             
 
     prompt = st.chat_input("Como o ChatRAD pode ajudar hoje?")
     # se alguma mensagem foi enviada:

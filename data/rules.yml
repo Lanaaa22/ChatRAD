@@ -6,7 +6,6 @@ rules:
     steps:
       - intent: ajuda  # Captura o clique no botão de ajuda
       - action: action_compreende_modulo
-
   - rule: disparar para laudo
     steps:
       - intent: escolher_modulo_laudo

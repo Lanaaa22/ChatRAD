@@ -1,0 +1,42 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"escolher_modulo_patologico\"}}]": "action_compreende_modulo",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"escolher_modulo_patologico\"}}, {\"prev_action\": {\"action_name\": \"action_compreende_modulo\"}, \"user\": {\"intent\": \"escolher_modulo_patologico\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"escolher_modulo_laudo\"}}]": "action_compreende_modulo",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"escolher_modulo_laudo\"}}, {\"prev_action\": {\"action_name\": \"action_compreende_modulo\"}, \"user\": {\"intent\": \"escolher_modulo_laudo\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "utter_default",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"utter_default\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "utter_opcao_modulo",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"utter_default\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"utter_opcao_modulo\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"escolher_modulo_similares\"}}]": "action_compreende_modulo",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"escolher_modulo_similares\"}}, {\"prev_action\": {\"action_name\": \"action_compreende_modulo\"}, \"user\": {\"intent\": \"escolher_modulo_similares\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ajuda\"}}]": "action_compreende_modulo",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ajuda\"}}, {\"prev_action\": {\"action_name\": \"action_compreende_modulo\"}, \"user\": {\"intent\": \"ajuda\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"fora_de_escopo\"}}]": "utter_fora_de_escopo",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"fora_de_escopo\"}}, {\"prev_action\": {\"action_name\": \"utter_fora_de_escopo\"}, \"user\": {\"intent\": \"fora_de_escopo\"}}]": "utter_opcao_modulo",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"fora_de_escopo\"}}, {\"prev_action\": {\"action_name\": \"utter_fora_de_escopo\"}, \"user\": {\"intent\": \"fora_de_escopo\"}}, {\"prev_action\": {\"action_name\": \"utter_opcao_modulo\"}, \"user\": {\"intent\": \"fora_de_escopo\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"fora_de_escopo\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"escolher_modulo_laudo\"}}]",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"utter_default\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"utter_opcao_modulo\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "predicting default action with intent back",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"escolher_modulo_patologico\"}}, {\"prev_action\": {\"action_name\": \"action_compreende_modulo\"}, \"user\": {\"intent\": \"escolher_modulo_patologico\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"fora_de_escopo\"}}, {\"prev_action\": {\"action_name\": \"utter_fora_de_escopo\"}, \"user\": {\"intent\": \"fora_de_escopo\"}}, {\"prev_action\": {\"action_name\": \"utter_opcao_modulo\"}, \"user\": {\"intent\": \"fora_de_escopo\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"escolher_modulo_similares\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ajuda\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"utter_default\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"escolher_modulo_similares\"}}, {\"prev_action\": {\"action_name\": \"action_compreende_modulo\"}, \"user\": {\"intent\": \"escolher_modulo_similares\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"fora_de_escopo\"}}, {\"prev_action\": {\"action_name\": \"utter_fora_de_escopo\"}, \"user\": {\"intent\": \"fora_de_escopo\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"escolher_modulo_laudo\"}}, {\"prev_action\": {\"action_name\": \"action_compreende_modulo\"}, \"user\": {\"intent\": \"escolher_modulo_laudo\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ajuda\"}}, {\"prev_action\": {\"action_name\": \"action_compreende_modulo\"}, \"user\": {\"intent\": \"ajuda\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"escolher_modulo_patologico\"}}]"
+    ]
+  }
+}
