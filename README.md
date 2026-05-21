@@ -34,7 +34,7 @@ rasa run actions
 
 Em outro terminal:
  ```bash
-streamlit run ui/chat_interface.py
+streamlit run ui/cadastro.py
 ```
 
 ## Tutorial para o ngrok
