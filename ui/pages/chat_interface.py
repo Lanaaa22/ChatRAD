@@ -104,7 +104,6 @@ def send_feedback(cursor, c):
         return
     else:
         id = st.session_state.usuario_id
-        st.write(f"DEBUG — usuario_id na sessão: {id}") 
         comentario = st.text_area("Digite aqui seu comentário sobre o atendimento:", key="campo_comentario_fb")
         if st.button("Confirmar Envio"):
             try:
