@@ -1,0 +1,10 @@
+[client]
+showSidebarNavigation = false
+
+[theme]
+base = "dark"
+primaryColor = "#38BDF8"            # Azul celeste (excelente contraste no escuro e remete a tecnologia médica)
+backgroundColor = "#0F172A"         # Fundo escuro ardósia (mais confortável que preto puro)
+secondaryBackgroundColor = "#1E293B" # Fundo dos painéis e barra lateral (um pouco mais claro para criar hierarquia)
+textColor = "#F8FAFC"               # Texto branco/acinzentado para alta legibilidade
+font = "sans serif"

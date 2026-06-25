@@ -1,10 +1,13 @@
 import psycopg2
+import streamlit as st
 
+@st.cache_resource
 def conexao():
-    try:
-        conexao = psycopg2.connect(database = "defaultdb", host = "pg-20fe24c4-ilaninhaaa22-0019.i.aivencloud.com", user = "avnadmin", password = "AVNS_dUBTFOg8pU7MRHo_ied", port= "21277", sslmode="require")
-        return conexao
-    except Exception as e:
-        print(f"Erro ao conectar {e}")
-        return None
-    
+    conexao = psycopg2.connect(
+        host=st.secrets["postgres"]["host"],
+        port=st.secrets["postgres"]["port"],
+        dbname=st.secrets["postgres"]["dbname"],
+        user=st.secrets["postgres"]["user"],
+        password=st.secrets["postgres"]["password"]
+    )
+    return conexao

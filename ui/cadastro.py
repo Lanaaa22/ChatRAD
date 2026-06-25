@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import psycopg2
+import funcoes as f
 
 def getId(e_mail, senha, c):
     cursor = c.cursor()
@@ -11,14 +12,6 @@ def getId(e_mail, senha, c):
     if resultado:
         return resultado[0]
     return None
-
-def conexao():
-    try:
-        conexao = psycopg2.connect(database = "defaultdb", host = "pg-20fe24c4-ilaninhaaa22-0019.i.aivencloud.com", user = "avnadmin", password = "AVNS_dUBTFOg8pU7MRHo_ied", port= "21277", sslmode="require")
-        return conexao
-    except Exception as e:
-        print(f"Erro ao conectar {e}")
-        return None
 
 def inserirProfissional(c, nome, profissao, e_mail, senha):
     cursor = c.cursor()
@@ -37,22 +30,30 @@ def inserirProfissional(c, nome, profissao, e_mail, senha):
 def interface(c):
     with st.container(border=True):
         st.write("Cadastro de Usuário")
-        nome = st.text_input("Nome Completo: ")
-        profissao = st.text_input("Profissão: ")
-        email = st.text_input("E-mail: ")
-        senha = st.text_input("Senha: ", type="password")
-        if st.button("Cadastrar"):
-            if not email or not senha or not profissao or not nome:
-                st.warning("Tente novamente! algum dado não foi escrito")
-            else:
-                id_encontrado = inserirProfissional(c, nome, profissao, email, senha)
-                st.session_state.usuario_id = id_encontrado
-                st.switch_page("pages/chat_interface.py")
+        
+        with st.form(key="form_cadastro"):
+            nome = st.text_input("Nome Completo: ")
+            profissao = st.text_input("Profissão: ")
+            email = st.text_input("E-mail: ")
+            senha = st.text_input("Senha: ", type="password")
+            
+            submit = st.form_submit_button("Cadastrar")
+            
+            if submit:
+                if not email or not senha or not profissao or not nome:
+                    st.warning("Tente novamente! algum dado não foi escrito")
+                else:
+                    id_encontrado = inserirProfissional(c, nome, profissao, email, senha)
+                    st.session_state.usuario_id = id_encontrado
+                    st.switch_page("pages/chat_interface.py")
+                    st.stop()
+        
         if st.button("Já tem conta?"):
             st.switch_page("pages/login.py")
+            st.stop()
 
 def main():
-    c = conexao()
+    c = f.conexao()
     
     interface(c)
 

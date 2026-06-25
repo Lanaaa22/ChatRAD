@@ -3,14 +3,7 @@ import requests
 from ultralytics import YOLO
 from PIL import Image
 import psycopg2
-
-def conexao():
-    try:
-        conexao = psycopg2.connect(database = "defaultdb", host = "pg-20fe24c4-ilaninhaaa22-0019.i.aivencloud.com", user = "avnadmin", password = "AVNS_dUBTFOg8pU7MRHo_ied", port= "21277", sslmode="require")
-        return conexao
-    except Exception as e:
-        print(f"Erro ao conectar {e}")
-        return None
+import funcoes as f
     
 def title():
     st.set_page_config(page_title="ChatRAD", page_icon="🤖")
@@ -104,7 +97,6 @@ def send_feedback(cursor, c):
         return
     else:
         id = st.session_state.usuario_id
-        st.write(f"DEBUG — usuario_id na sessão: {id}") 
         comentario = st.text_area("Digite aqui seu comentário sobre o atendimento:", key="campo_comentario_fb")
         if st.button("Confirmar Envio"):
             try:
@@ -117,7 +109,7 @@ def send_feedback(cursor, c):
                 st.error(f"Erro ao enviar feedback: {e}")
 
 def main():
-    c = conexao()
+    c = f.conexao()
     cursor = c.cursor()
     title()
     if "msg" not in st.session_state:
@@ -157,6 +149,10 @@ def main():
                                     modelo_patologico = YOLO('modules/best.pt')
                                     for arq_image in uploaded_files:
                                         patologico_image(arq_image, modelo_patologico)
+                                elif entity == "laudo":
+                                    st.write("modulo não implementado ainda")
+                                elif entity == "similar":
+                                    st.write("módulo não implementado ainda")
                 
     if st.session_state.get("aguardando_feedback"):
         send_feedback(cursor, c)             

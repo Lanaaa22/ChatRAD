@@ -78,6 +78,9 @@ nlu:
     - Tudo certo?
     - Prazer
     - Ola
+    - oieeee
+    - oioi
+
 
 - intent: despedida
   examples: |

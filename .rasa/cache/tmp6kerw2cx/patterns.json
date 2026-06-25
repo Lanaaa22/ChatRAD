@@ -1,0 +1,6 @@
+[
+  {
+    "name": "nome",
+    "pattern": "(?<=me chamo\\s)[A-Za-zÀ-ÖØ-öø-ÿ]+"
+  }
+]

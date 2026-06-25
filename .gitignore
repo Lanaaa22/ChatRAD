@@ -1,0 +1,14 @@
+# Ambientes Virtuais
+.venv/
+.venv_rasa/
+
+# Segredos do Streamlit (Senhas do psycopg2)
+.streamlit/secrets.toml
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Arquivos locais do SO
+.DS_Store
+Thumbs.db
