@@ -21,6 +21,11 @@ pip install streamlit
 pip install ultralytics
 ```
 
+- Instalar o ultralytics:
+ ```bash
+pip install psycopg2-binary
+```
+
 ## 👾 Compilação e Execução
 
  ```bash
