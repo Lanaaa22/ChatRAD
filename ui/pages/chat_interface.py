@@ -12,6 +12,13 @@ def title():
         unsafe_allow_html=True
     )
 
+def botao_logout():
+    col_vazia, col_botao = st.columns([85, 15])
+    with col_botao:
+        if st.button("Logout", use_container_width=True):
+            st.session_state.clear()
+            st.switch_page("cadastro.py")
+
 # Armazenar o histórico de mensagens
 def store_message(type_user, prompt, buttons=None):
     if "exists_button" not in st.session_state:
@@ -111,6 +118,7 @@ def send_feedback(cursor, c):
 def main():
     c = f.conexao()
     cursor = c.cursor()
+    botao_logout()
     title()
     if "msg" not in st.session_state:
         st.session_state["msg"] = []
@@ -149,9 +157,9 @@ def main():
                                     modelo_patologico = YOLO('modules/best.pt')
                                     for arq_image in uploaded_files:
                                         patologico_image(arq_image, modelo_patologico)
-                                elif entity == "laudo":
+                                if entity == "laudo":
                                     st.write("modulo não implementado ainda")
-                                elif entity == "similar":
+                                if entity == "similar":
                                     st.write("módulo não implementado ainda")
                 
     if st.session_state.get("aguardando_feedback"):
